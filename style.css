@@ -1,0 +1,339 @@
+:root {
+  --red: #a4181f;
+  --red-dark: #7c1117;
+  --gold: #c9a227;
+  --ink: #1f2228;
+  --ink-soft: #52565e;
+  --bg: #f4f1ea;
+  --card: #ffffff;
+  --border: #e4ddc9;
+  --radius: 14px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.06), 0 10px 30px rgba(124, 17, 23, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* ---------- Header ---------- */
+.masthead {
+  text-align: center;
+  padding: 22px 12px 18px;
+  border-bottom: 3px solid var(--gold);
+  margin-bottom: 22px;
+}
+
+.masthead .org {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.masthead h1 {
+  margin: 6px 0 4px;
+  font-size: clamp(22px, 4vw, 32px);
+  color: var(--red-dark);
+  letter-spacing: 0.01em;
+}
+
+.masthead .subtitle {
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.masthead .week-range {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 600;
+  color: var(--red-dark);
+  box-shadow: var(--shadow);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2fa84a;
+  box-shadow: 0 0 0 0 rgba(47, 168, 74, 0.6);
+  animation: pulse 2s infinite;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(47, 168, 74, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(47, 168, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 168, 74, 0); }
+}
+
+.nav-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 26px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  border-color: var(--red);
+  color: var(--red-dark);
+}
+
+.btn.primary {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+.btn.primary:hover {
+  background: var(--red-dark);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  color: var(--ink-soft);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- Desktop table ---------- */
+.schedule-table-wrap {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+table.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+table.schedule th,
+table.schedule td {
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  vertical-align: top;
+  text-align: left;
+}
+
+table.schedule thead th {
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+table.schedule thead th .leader-name {
+  display: block;
+  font-size: 14.5px;
+}
+
+table.schedule thead th .leader-title {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  opacity: 0.92;
+  margin-top: 2px;
+}
+
+table.schedule td.day-cell {
+  background: #faf7f0;
+  font-weight: 700;
+  color: var(--red-dark);
+  white-space: nowrap;
+  text-align: center;
+}
+
+table.schedule td.day-cell .d {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 500;
+  display: block;
+}
+
+table.schedule tbody tr:nth-child(even) td:not(.day-cell) {
+  background: #fcfcfa;
+}
+
+.session-block {
+  margin-bottom: 8px;
+}
+
+.session-block:last-child {
+  margin-bottom: 0;
+}
+
+.session-label {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.session-text {
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.session-text.empty {
+  color: #b7b2a4;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Mobile cards ---------- */
+.day-cards {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.day-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.day-card .day-head {
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  color: #fff;
+  padding: 12px 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.day-card .day-head .d {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.leader-row {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.leader-row .leader-name {
+  font-weight: 700;
+  color: var(--red-dark);
+  font-size: 13.5px;
+}
+
+.leader-row .leader-title {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+@media (max-width: 880px) {
+  .schedule-table-wrap { display: none; }
+  .day-cards { display: flex; }
+}
+
+/* ---------- Footer / status ---------- */
+.footer-note {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  margin-top: 28px;
+}
+
+.status-banner {
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  margin-bottom: 16px;
+}
+
+.status-banner.error {
+  background: #fde8e8;
+  color: #a4181f;
+  border: 1px solid #f3c7c7;
+}
+
+.status-banner.info {
+  background: #eef3fb;
+  color: #2f5aa8;
+  border: 1px solid #cfe0f5;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--ink-soft);
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+a.admin-link {
+  color: var(--ink-soft);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+a.admin-link:hover {
+  text-decoration: underline;
+}

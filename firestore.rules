@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Lịch công tác theo từng tuần — ai cũng xem được, chỉ người đã đăng nhập
+    // (tài khoản do quản trị viên tạo thủ công trong Firebase Authentication)
+    // mới được sửa.
+    match /weeks/{weekId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Danh sách 4 chức danh Thường trực Tỉnh uỷ — ai cũng xem được, chỉ
+    // người đã đăng nhập mới được sửa.
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Mặc định: chặn tất cả những gì không khớp các quy tắc trên.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

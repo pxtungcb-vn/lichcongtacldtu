@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lịch công tác Thường trực Tỉnh uỷ Cao Bằng</title>
+<meta name="description" content="Lịch công tác của Thường trực Tỉnh uỷ Cao Bằng - cập nhật theo thời gian thực" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="org">Tỉnh uỷ Cao Bằng · Văn phòng Tỉnh uỷ</div>
+      <h1>LỊCH CÔNG TÁC CỦA THƯỜNG TRỰC TỈNH UỶ</h1>
+      <div class="subtitle">Cập nhật theo thời gian thực</div>
+      <div class="week-range" id="weekRange">
+        <span class="live-dot"></span>
+        <span id="weekRangeText">Đang tải…</span>
+      </div>
+    </header>
+
+    <div class="nav-row">
+      <button class="btn" id="prevWeekBtn">‹ Tuần trước</button>
+      <button class="btn primary" id="thisWeekBtn">Tuần này</button>
+      <button class="btn" id="nextWeekBtn">Tuần sau ›</button>
+    </div>
+
+    <div id="statusArea"></div>
+
+    <div id="loadingArea" class="loading">
+      <div class="spinner"></div>
+      Đang tải lịch công tác…
+    </div>
+
+    <div class="schedule-table-wrap" id="tableWrap" style="display:none;">
+      <table class="schedule" id="scheduleTable">
+        <thead>
+          <tr id="tableHeadRow">
+            <th style="width:90px;">Thời gian</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="day-cards" id="dayCards"></div>
+
+    <div class="footer-note">
+      Trang hiển thị tự cập nhật ngay khi dữ liệu thay đổi — không cần tải lại trang.<br />
+      <a class="admin-link" href="admin.html">Đăng nhập nhập liệu (dành cho người có trách nhiệm)</a>
+    </div>
+  </div>
+
+  <script type="module" src="display.js"></script>
+</body>
+</html>

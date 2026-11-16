@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nhập liệu Lịch công tác — Văn phòng Tỉnh uỷ Cao Bằng</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="page narrow">
+    <header class="masthead">
+      <div class="org">Tỉnh uỷ Cao Bằng · Văn phòng Tỉnh uỷ</div>
+      <h1>NHẬP LIỆU LỊCH CÔNG TÁC</h1>
+      <div class="subtitle">Dành cho Lãnh đạo Văn phòng / Thư ký được phân quyền</div>
+    </header>
+
+    <!-- Màn hình đăng nhập -->
+    <div id="loginView" class="card login-card">
+      <h2>Đăng nhập</h2>
+      <p class="hint">Vui lòng đăng nhập bằng tài khoản được cấp để nhập/sửa lịch công tác.</p>
+      <div id="loginStatus"></div>
+      <label>Email</label>
+      <input type="email" id="loginEmail" placeholder="ten@example.com" autocomplete="username" />
+      <label>Mật khẩu</label>
+      <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" />
+      <button class="btn primary wide" id="loginBtn">Đăng nhập</button>
+      <a class="admin-link" href="index.html">← Về trang xem lịch công tác</a>
+    </div>
+
+    <!-- Màn hình nhập liệu -->
+    <div id="editorView" style="display:none;">
+      <div class="toolbar">
+        <div class="who">
+          Đang đăng nhập: <strong id="whoEmail"></strong>
+        </div>
+        <button class="btn" id="logoutBtn">Đăng xuất</button>
+      </div>
+
+      <div id="saveStatus"></div>
+
+      <div class="nav-row">
+        <button class="btn" id="prevWeekBtn">‹ Tuần trước</button>
+        <div class="week-range" id="weekRangeBox"><span id="weekRangeText">—</span></div>
+        <button class="btn" id="nextWeekBtn">Tuần sau ›</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn" id="thisWeekBtn">Về tuần này</button>
+        <button class="btn" id="copyPrevBtn">Sao chép nội dung từ tuần trước</button>
+        <button class="btn ghost" id="seedSampleBtn">Nạp dữ liệu mẫu (Tuần 47/2026)</button>
+        <button class="btn ghost" id="toggleLeadersBtn">Sửa danh sách 4 chức danh ▾</button>
+      </div>
+
+      <div class="card" id="leadersPanel" style="display:none;">
+        <h3>Danh sách 4 chức danh (áp dụng cho mọi tuần)</h3>
+        <div id="leadersForm"></div>
+        <button class="btn primary" id="saveLeadersBtn">Lưu danh sách chức danh</button>
+      </div>
+
+      <div id="daysEditor"></div>
+
+      <div class="save-bar">
+        <button class="btn primary wide" id="saveWeekBtn">💾 Lưu lịch công tác tuần này</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
